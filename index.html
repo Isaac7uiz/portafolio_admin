@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Evidencias Académico | Isaac Tuíz</title>
+
+    <!-- Google Fonts: Inter & Plus Jakarta Sans para toque editorial colorido -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        editorial: {
+                            peach: '#FFE5D4',
+                            peachDark: '#FF9F68',
+                            lavender: '#EDE9FE',
+                            sky: '#E0F2FE',
+                            mint: '#D1FAE5',
+                            amber: '#FEF3C7',
+                            rose: '#FFE4E6',
+                            cream: '#FAF8F5'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Scrollbar estilizado para el panel de contenido derecho */
+        .content-scroll::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .content-scroll::-webkit-scrollbar-track {
+            background: #f5f3ef;
+        }
+
+        .content-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+
+        .content-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Estado activo vibrante en la navegación lateral */
+        .nav-item.active {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            font-weight: 700;
+            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.25);
+        }
+
+        .nav-item.active i {
+            color: #fb923c;
+        }
+
+        .nav-item.active .nav-badge {
+            background-color: #fb923c;
+            color: #0f172a;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-[#FAF8F5] text-slate-900 font-sans antialiased h-screen overflow-hidden flex flex-col lg:flex-row selection:bg-orange-400 selection:text-white">
+
+    <!-- ==========================================
+         HEADER MÓVIL (Visible solo en pantallas < lg)
+         ========================================== -->
+    <header
+        class="lg:hidden bg-white/95 backdrop-blur-md border-b border-orange-100 px-5 py-4 flex items-center justify-between z-30 shrink-0 shadow-xs">
+        <div class="flex items-center gap-3">
+            <div
+                class="w-9 h-9 rounded-2xl bg-gradient-to-br from-orange-400 to-rose-500 text-white flex items-center justify-center text-xs font-black tracking-tighter shadow-sm">
+                IT
+            </div>
+            <div>
+                <span class="font-extrabold text-sm tracking-tight text-slate-900 block leading-none">Isaac Tuíz</span>
+                <span class="text-[11px] text-orange-600 font-semibold">Portafolio Académico</span>
+            </div>
+        </div>
+        <button id="mobile-menu-btn" aria-label="Abrir menú"
+            class="w-10 h-10 rounded-xl border border-slate-200 bg-orange-50/60 hover:bg-orange-100 active:scale-95 flex items-center justify-center text-slate-800 transition-all">
+            <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm"></i>
+        </button>
+    </header>
+
+    <!-- Overlay móvil -->
+    <div id="sidebar-overlay"
+        class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-30 hidden lg:hidden transition-opacity"></div>
+
+    <!-- ==========================================
+         BARRA LATERAL IZQUIERDA (Colorida y Editorial)
+         ========================================== -->
+    <aside id="sidebar"
+        class="fixed lg:static inset-y-0 left-0 z-40 w-76 bg-white border-r border-orange-100/80 flex flex-col justify-between shrink-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out shadow-sm">
+
+        <!-- Parte Superior: Identidad y Menú -->
+        <div class="p-6">
+            <!-- Cabecera de Autor con bloque de color pastel -->
+            <div
+                class="bg-gradient-to-br from-[#FFE5D4] via-[#FFF0E5] to-[#EDE9FE] rounded-2xl p-4 mb-6 border border-orange-200/50 shadow-xs flex items-center gap-3.5">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-sm font-black tracking-tight shadow-md shrink-0">
+                    IT
+                </div>
+                <div class="min-w-0">
+                    <h1 class="text-base font-extrabold tracking-tight text-slate-900 truncate">Isaac Tuíz</h1>
+                    <p class="text-xs font-semibold text-orange-800/80 truncate">Portafolio de Evidencias</p>
+                </div>
+            </div>
+
+            <!-- Etiqueta de Menú -->
+            <p class="px-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400 mb-3">
+                Navegación Visual
+            </p>
+
+            <!-- Botones de Navegación SPA -->
+            <nav class="space-y-2" aria-label="Navegación principal">
+                <button onclick="cambiarSeccion('inicio')" data-section="inicio"
+                    class="nav-item active w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl text-sm text-slate-700 hover:bg-orange-50/80 hover:text-slate-900 active:scale-95 transition-all duration-200 text-left cursor-pointer">
+                    <i class="fa-solid fa-house w-4 text-center text-slate-400 transition-colors"></i>
+                    <span>Inicio</span>
+                </button>
+
+                <button onclick="cambiarSeccion('estudiante')" data-section="estudiante"
+                    class="nav-item w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl text-sm text-slate-700 hover:bg-sky-50/80 hover:text-slate-900 active:scale-95 transition-all duration-200 text-left cursor-pointer">
+                    <i class="fa-solid fa-user-astronaut w-4 text-center text-slate-400 transition-colors"></i>
+                    <span>Presentación del Estudiante</span>
+                </button>
+
+                <button onclick="cambiarSeccion('evidencias')" data-section="evidencias"
+                    class="nav-item w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm text-slate-700 hover:bg-violet-50/80 hover:text-slate-900 active:scale-95 transition-all duration-200 text-left cursor-pointer">
+                    <div class="flex items-center gap-3.5">
+                        <i class="fa-solid fa-layer-group w-4 text-center text-slate-400 transition-colors"></i>
+                        <span>Competencias y Evidencias</span>
+                    </div>
+                    <span
+                        class="nav-badge text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-violet-100 text-violet-800 transition-colors">6</span>
+                </button>
+
+                <button onclick="cambiarSeccion('reflexion')" data-section="reflexion"
+                    class="nav-item w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl text-sm text-slate-700 hover:bg-amber-50/80 hover:text-slate-900 active:scale-95 transition-all duration-200 text-left cursor-pointer">
+                    <i class="fa-solid fa-wand-magic-sparkles w-4 text-center text-slate-400 transition-colors"></i>
+                    <span>Reflexión Holística</span>
+                </button>
+
+                <button onclick="cambiarSeccion('valoracion')" data-section="valoracion"
+                    class="nav-item w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl text-sm text-slate-700 hover:bg-rose-50/80 hover:text-slate-900 active:scale-95 transition-all duration-200 text-left cursor-pointer">
+                    <i class="fa-solid fa-comments w-4 text-center text-slate-400 transition-colors"></i>
+                    <span>Valoración de Pares</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Pie de Barra Lateral con bloque lavanda/menta -->
+        <div class="p-6 border-t border-slate-100">
+            <div class="bg-[#E0F2FE] border border-sky-200/80 rounded-2xl p-4 shadow-xs">
+                <div class="flex items-center gap-2 mb-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-extrabold text-slate-900">Edición Académica 2026</span>
+                </div>
+                <p class="text-xs text-slate-700 font-medium leading-relaxed">
+                    Universidad del Valle de Guatemala · Licenciatura en Informática.
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ==========================================
+         PANEL DE CONTENIDO DERECHO (Scroll Independiente)
+         ========================================== -->
+    <main id="main-scroll"
+        class="flex-1 h-full overflow-y-auto content-scroll bg-[#FAF8F5] px-5 sm:px-10 lg:px-14 py-8 lg:py-12">
+        <div class="max-w-6xl mx-auto pb-20">
+
+            <!-- ==========================================
+                 SECCIÓN 1: INICIO (CARRUSEL HERO + BLOQUES DE COLOR)
+                 ========================================== -->
+            <section id="inicio" class="spa-section transition-all duration-300 opacity-100">
+
+                <!-- ==========================================
+                     CARRUSEL DE IMÁGENES (HERO BANNER SLIDER)
+                     ========================================== -->
+                <div id="hero-carousel"
+                    class="relative w-full h-96 sm:h-[430px] rounded-3xl overflow-hidden shadow-xl bg-slate-900 select-none border-4 border-white">
+
+                    <!-- SLIDE 1: Administración Estratégica -->
+                    <div
+                        class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 z-10">
+                        <img src="./assets/img/banner-estrategia.jpg" alt="Administración Estratégica y Planeación"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent">
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-8 sm:p-12 pb-14 max-w-3xl">
+                            <span
+                                class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-400 text-slate-950 text-xs font-extrabold uppercase tracking-wider mb-3 shadow-sm">
+                                <i class="fa-solid fa-compass"></i>
+                                Portafolio de Evidencias 2026
+                            </span>
+                            <h2
+                                class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight mb-2">
+                                Administración Estratégica
+                            </h2>
+                            <p class="text-sm sm:text-base text-slate-100 leading-relaxed max-w-2xl">
+                                Exploración visual de matrices FODA, premisas de planeación institucional y toma de
+                                decisiones gerenciales basadas en casos reales.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2: Gestión de Recursos Humanos y Estructura -->
+                    <div
+                        class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0 pointer-events-none">
+                        <img src="./assets/img/banner-rrhh.jpg"
+                            alt="Gestión de Recursos Humanos y Diseño Organizacional"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent">
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-8 sm:p-12 pb-14 max-w-3xl">
+                            <span
+                                class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-300 text-slate-950 text-xs font-extrabold uppercase tracking-wider mb-3 shadow-sm">
+                                <i class="fa-solid fa-people-group"></i>
+                                Liderazgo y Arquitectura Corporativa
+                            </span>
+                            <h2
+                                class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight mb-2">
+                                Gestión de Recursos Humanos
+                            </h2>
+                            <p class="text-sm sm:text-base text-slate-100 leading-relaxed max-w-2xl">
+                                Diseño de estructuras organizacionales, cadenas de mando y procesos estratégicos de
+                                identificación y selección del talento humano.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 3: Ética Corporativa y Sostenibilidad -->
+                    <div
+                        class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0 pointer-events-none">
+                        <img src="./assets/img/banner-etica.jpg"
+                            alt="Responsabilidad Social Empresarial y Cultura Organizacional"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent">
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-8 sm:p-12 pb-14 max-w-3xl">
+                            <span
+                                class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-300 text-slate-950 text-xs font-extrabold uppercase tracking-wider mb-3 shadow-sm">
+                                <i class="fa-solid fa-leaf"></i>
+                                Gobernanza y Cultura Organizacional
+                            </span>
+                            <h2
+                                class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight mb-2">
+                                Ética y Sostenibilidad Empresarial
+                            </h2>
+                            <p class="text-sm sm:text-base text-slate-100 leading-relaxed max-w-2xl">
+                                Evaluación de impacto ambiental, administración verde y fortalecimiento de los valores
+                                que integran la identidad de una organización.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Botón Flotante Izquierdo (Anterior) -->
+                    <button id="carousel-prev" aria-label="Diapositiva anterior"
+                        class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/20 hover:bg-white/40 border border-white/30 backdrop-blur-md text-white flex items-center justify-center opacity-85 hover:opacity-100 active:scale-95 transition-all duration-200 cursor-pointer shadow-lg">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </button>
+
+                    <!-- Botón Flotante Derecho (Siguiente) -->
+                    <button id="carousel-next" aria-label="Siguiente diapositiva"
+                        class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/20 hover:bg-white/40 border border-white/30 backdrop-blur-md text-white flex items-center justify-center opacity-85 hover:opacity-100 active:scale-95 transition-all duration-200 cursor-pointer shadow-lg">
+                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </button>
+
+                    <!-- Indicadores Inferiores Centrales (Dots) -->
+                    <div
+                        class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5 bg-slate-950/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
+                        <button onclick="irASlide(0)" aria-label="Ir a diapositiva 1"
+                            class="carousel-dot h-2.5 w-8 rounded-full bg-orange-400 transition-all duration-300 cursor-pointer"></button>
+                        <button onclick="irASlide(1)" aria-label="Ir a diapositiva 2"
+                            class="carousel-dot h-2.5 w-2.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer"></button>
+                        <button onclick="irASlide(2)" aria-label="Ir a diapositiva 3"
+                            class="carousel-dot h-2.5 w-2.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer"></button>
+                    </div>
+                </div>
+
+                <!-- Bloque Visual Editorial de Propósito (Tonos Melocotón + Lavanda + Azul Suave) -->
+                <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+                    <!-- Columna Principal: Bloque Melocotón Editorial -->
+                    <div
+                        class="lg:col-span-8 bg-[#FFE5D4] border-2 border-orange-200/80 rounded-3xl p-8 sm:p-10 shadow-md flex flex-col justify-between relative overflow-hidden">
+                        <div class="relative z-10">
+                            <span
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 text-orange-900 text-xs font-extrabold uppercase tracking-wider mb-4 shadow-2xs">
+                                <i class="fa-solid fa-sparkles text-orange-500"></i>
+                                Propósito del Portafolio
+                            </span>
+                            <h3
+                                class="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 mb-4 leading-tight">
+                                Aprendizaje gerencial documentado con evidencia visual y práctica
+                            </h3>
+                            <p class="text-slate-800 leading-relaxed mb-6 text-sm sm:text-base font-medium">
+                                Este espacio interactivo reúne los casos de estudio, análisis estratégicos y proyectos
+                                desarrollados durante el semestre. Cada módulo combina síntesis visual, <strong>lectura
+                                    inmersiva</strong> (<i class="fa-solid fa-eye text-xs text-orange-700 mx-0.5"></i>)
+                                y visualización directa de documentos PDF.
+                            </p>
+                        </div>
+
+                        <div class="pt-2 flex flex-wrap gap-3.5 relative z-10">
+                            <button onclick="cambiarSeccion('evidencias')"
+                                class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 active:scale-95 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer">
+                                <span>Explorar las 6 Evidencias</span>
+                                <i class="fa-solid fa-arrow-right text-xs text-orange-400"></i>
+                            </button>
+                            <button onclick="cambiarSeccion('estudiante')"
+                                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white hover:bg-orange-50 active:scale-95 text-slate-900 border border-orange-200 text-sm font-bold shadow-sm transition-all duration-200 cursor-pointer">
+                                <i class="fa-solid fa-user text-orange-500 text-xs"></i>
+                                <span>Conocer al Estudiante</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Métricas en Bloques de Color Pastel -->
+                    <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+                        <div
+                            class="bg-[#E0F2FE] border-2 border-sky-200/80 rounded-3xl p-6 shadow-sm flex items-center gap-4">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center text-xl font-black shadow-sm shrink-0">
+                                06
+                            </div>
+                            <div>
+                                <span class="text-sm font-extrabold text-slate-900 block">Módulos Clave</span>
+                                <span class="text-xs font-medium text-sky-900/80">Semanas documentadas</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-[#EDE9FE] border-2 border-violet-200/80 rounded-3xl p-6 shadow-sm flex items-center gap-4">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-violet-600 text-white flex items-center justify-center text-xl font-black shadow-sm shrink-0">
+                                07
+                            </div>
+                            <div>
+                                <span class="text-sm font-extrabold text-slate-900 block">Archivos PDF</span>
+                                <span class="text-xs font-medium text-violet-900/80">Vista previa + descarga</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-[#D1FAE5] border-2 border-emerald-200/80 rounded-3xl p-6 shadow-sm flex items-center gap-4">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg font-black shadow-sm shrink-0">
+                                100%
+                            </div>
+                            <div>
+                                <span class="text-sm font-extrabold text-slate-900 block">Casos Reales</span>
+                                <span class="text-xs font-medium text-emerald-900/80">Aplicación empresarial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjetas de Pilares Académicos con Bloques de Color Diferenciados -->
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="bg-[#E0F2FE]/80 border-2 border-sky-200 rounded-3xl p-7 shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 ease-in-out">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-sky-600 text-white flex items-center justify-center text-lg mb-5 shadow-sm">
+                            <i class="fa-solid fa-sitemap"></i>
+                        </div>
+                        <h4 class="text-lg font-extrabold tracking-tight text-slate-900 mb-2">Estructura y Estrategia
+                        </h4>
+                        <p class="text-sm text-slate-700 leading-relaxed font-medium">
+                            Análisis de planeación FODA, políticas institucionales y diseño de cadenas de mando
+                            organizacionales.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-[#FEF3C7]/90 border-2 border-amber-200 rounded-3xl p-7 shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 ease-in-out">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-lg mb-5 shadow-sm">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h4 class="text-lg font-extrabold tracking-tight text-slate-900 mb-2">Ética y Decisiones</h4>
+                        <p class="text-sm text-slate-700 leading-relaxed font-medium">
+                            Evaluación de impacto ambiental, gobernanza ética y matrices de licitación para selección de
+                            proveedores.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-[#EDE9FE]/90 border-2 border-violet-200 rounded-3xl p-7 shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 ease-in-out">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-violet-600 text-white flex items-center justify-center text-lg mb-5 shadow-sm">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h4 class="text-lg font-extrabold tracking-tight text-slate-900 mb-2">Cultura y Talento</h4>
+                        <p class="text-sm text-slate-700 leading-relaxed font-medium">
+                            Transmisión de la cultura organizacional y procesos técnicos de identificación y selección
+                            de RRHH.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECCIÓN 2: PRESENTACIÓN DEL ESTUDIANTE
+                 ========================================== -->
+            <section id="estudiante" class="spa-section hidden transition-all duration-300 opacity-0">
+                <div
+                    class="mb-10 bg-gradient-to-r from-[#E0F2FE] via-[#EDE9FE] to-[#FFE5D4] rounded-3xl p-8 border-2 border-white shadow-md">
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 text-slate-800 text-xs font-extrabold uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-id-badge text-sky-600"></i>
+                        Sobre el Autor
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
+                        Presentación del Estudiante
+                    </h2>
+                    <p class="text-slate-700 font-medium mt-1">
+                        Perfil académico, especialización tecnológica e intereses personales.
+                    </p>
+                </div>
+
+                <!-- Diseño de dos columnas en escritorio, apilado en móvil -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                    <!-- Columna Izquierda: Fotografía y Ficha en Bloque Azul Pastel -->
+                    <div
+                        class="lg:col-span-4 group bg-[#E0F2FE] border-2 border-sky-200 rounded-3xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out flex flex-col items-center text-center">
+                        <!-- Placeholder Circular con Zoom Sutil -->
+                        <div
+                            class="w-40 h-40 rounded-full bg-white border-4 border-white p-1 shadow-md mb-6 relative overflow-hidden">
+                            <img src="./assets/img/foto-perfil.jpeg" alt="Fotografía de Isaac Tuíz"
+                                class="w-full h-full rounded-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <h3 class="text-2xl font-black tracking-tight text-slate-900">Isaac Tuíz</h3>
+                        <span
+                            class="inline-block mt-1.5 px-3.5 py-1 rounded-full bg-sky-600 text-white text-xs font-bold shadow-xs">
+                            Licenciatura en Informática
+                        </span>
+                        <p class="text-xs text-slate-700 font-semibold mt-3 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-rose-500"></i>
+                            <span>Sololá, Guatemala</span>
+                        </p>
+
+                        <div
+                            class="w-full bg-white/85 backdrop-blur-xs rounded-2xl p-5 mt-6 space-y-3 text-left text-xs text-slate-700 border border-sky-200/60">
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-500 font-semibold">Universidad</span>
+                                <span class="font-extrabold text-slate-900">UVG</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-500 font-semibold">Enfoque</span>
+                                <span class="font-extrabold text-slate-900">Software & Gestión IT</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-500 font-semibold">Período</span>
+                                <span class="font-extrabold text-emerald-700">Semestre 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Biografía e Intereses con Bloques Coloridos -->
+                    <div class="lg:col-span-8 space-y-6">
+                        <div
+                            class="bg-white border-2 border-orange-100 rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-[#FFE5D4] text-orange-700 flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <h4 class="text-xl font-extrabold tracking-tight text-slate-900">
+                                    Formación Académica y Perfil Profesional
+                                </h4>
+                            </div>
+                            <div class="space-y-4 text-slate-700 leading-relaxed font-medium">
+                                <p>
+                                    Soy estudiante de Licenciatura en Informática en la <strong>Universidad del Valle de
+                                        Guatemala, Campus Altiplano</strong>. Me caracterizo por tener una actitud
+                                    alegre y divertida con personas de confianza, sin embargo suelo ser más callado
+                                    cuando aún no hay confianza, aunque supongo que suele ser normal.
+                                </p>
+                                <p>
+                                    Estos últimos años he aprendido demasiado en cuando al desarrollo de
+                                    arquitecturas web modernas utilizando tecnologías como <strong>Angular, Python,
+                                        Django y Node.js</strong>, así como en la administración de infraestructuras IT,
+                                    servidores Windows, bases de datos relacionales e implementación de sistemas de
+                                    Inteligencia Artificial basados en <strong>RAG (Retrieval-Augmented
+                                        Generation)</strong>.
+                                </p>
+                                <p>
+                                    Fuera del ámbito académico y del desarrollo de software, mi día a día incluye
+                                    recorrer rutas en motocicleta, hacer ejercicio, practicar piano eléctrico y mantener
+                                    un interés personal en la evaluación y
+                                    colección de fragancias.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Etiquetas de Especialidad e Intereses con Pasteles -->
+                        <div class="bg-[#EDE9FE]/80 border-2 border-violet-200 rounded-3xl p-8 shadow-md">
+                            <h4
+                                class="text-xs font-black uppercase tracking-widest text-violet-900 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-bolt text-violet-600"></i>
+                                Áreas de Interés y Tecnologías
+                            </h4>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span
+                                    class="px-4 py-2 rounded-xl bg-white border border-violet-200 text-xs font-bold text-slate-800 shadow-2xs">Arquitectura
+                                    Web (Angular / Node.js)</span>
+                                <span
+                                    class="px-4 py-2 rounded-xl bg-[#E0F2FE] border border-sky-200 text-xs font-bold text-sky-950 shadow-2xs">Python
+                                    & Django</span>
+                                <span
+                                    class="px-4 py-2 rounded-xl bg-[#FFE5D4] border border-orange-200 text-xs font-bold text-orange-950 shadow-2xs">Sistemas
+                                    IA & RAG</span>
+                                <span
+                                    class="px-4 py-2 rounded-xl bg-[#D1FAE5] border border-emerald-200 text-xs font-bold text-emerald-950 shadow-2xs">Infraestructura
+                                    IT & Windows Server</span>
+                                <span
+                                    class="px-4 py-2 rounded-xl bg-[#FEF3C7] border border-amber-200 text-xs font-bold text-amber-950 shadow-2xs">Gestión
+                                    y Toma de Decisiones</span>
+                                <span
+                                    class="px-4 py-2 rounded-xl bg-[#FFE4E6] border border-rose-200 text-xs font-bold text-rose-950 shadow-2xs">Rutas
+                                    en Motocicleta & Fragancias</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECCIÓN 3: COMPETENCIAS Y EVIDENCIAS
+                 (Tarjetas Coloridas + Vista de Detalle con Doble Botón PDF)
+                 ========================================== -->
+            <section id="evidencias" class="spa-section hidden transition-all duration-300 opacity-0">
+
+                <!-- ==========================================
+                     VISTA 1: CUADRÍCULA DE TARJETAS COLORIDAS (GRID)
+                     ========================================== -->
+                <div id="vista-grid-evidencias" class="transition-all duration-300 opacity-100">
+                    <!-- Encabezado de Sección Colorido -->
+                    <div
+                        class="mb-10 bg-gradient-to-r from-[#FFE5D4] via-[#EDE9FE] to-[#E0F2FE] rounded-3xl p-8 border-2 border-white shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <span
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 text-slate-900 text-xs font-extrabold uppercase tracking-widest mb-2">
+                                <i class="fa-solid fa-folder-open text-orange-500"></i>
+                                Repositorio del Semestre
+                            </span>
+                            <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
+                                Competencias y Evidencias
+                            </h2>
+                            <p class="text-slate-700 font-medium leading-relaxed mt-1">
+                                Haz clic en el botón <i class="fa-solid fa-eye text-violet-700 mx-1"></i> de
+                                cada tarjeta para abrir el resumen extenso y las opciones de <strong>Visualizar</strong>
+                                o <strong>Descargar PDF</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Grid Responsivo de 6 Tarjetas con Acentos de Color Pastel Únicos e Imagen >= 45% -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <!-- TARJETA 1: Semana 15 (Acento Azul Cielo Pastel) -->
+                        <article
+                            class="group bg-[#E0F2FE] border-2 border-sky-200/90 rounded-3xl overflow-hidden shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300 ease-in-out flex flex-col justify-between min-h-[440px]">
+                            <!-- Imagen Superior (>= 45% de la altura visual de la tarjeta: h-56) -->
+                            <div class="h-56 w-full overflow-hidden relative bg-sky-900 shrink-0">
+                                <img src="./assets/img/semana-15-rrhh.jpg"
+                                    alt="Semana 15: Administración y selección de recursos humanos"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-4 left-4 text-xs font-extrabold uppercase tracking-wider text-sky-950 bg-[#E0F2FE]/95 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-sm">
+                                    Semana 15 · RRHH
+                                </span>
+                            </div>
+
+                            <!-- Parte Inferior con Fondo Pastel Azul Suave -->
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-start justify-between gap-3 mb-3">
+                                        <h3 class="text-lg font-black tracking-tight text-slate-900 leading-snug">
+                                            Administración y selección de recursos humanos
+                                        </h3>
+                                        <button onclick="mostrarDetalleSemana('semana15')"
+                                            title="Ver resumen y opciones de PDF - Semana 15"
+                                            aria-label="Ver detalle de Semana 15"
+                                            class="w-10 h-10 rounded-2xl bg-white text-sky-700 hover:bg-sky-600 hover:text-white border border-sky-200 shadow-sm active:scale-95 flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer">
+                                            <i class="fa-solid fa-eye text-sm"></i>
+                                        </button>
+                                    </div>
+
+                                    <ul
+                                        class="space-y-2 text-sm text-slate-800 font-medium leading-relaxed my-4 bg-white/70 rounded-2xl p-4 border border-sky-200/60">
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-sky-600 mt-1.5 shrink-0"></span>
+                                            <span>Factores externos</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-sky-600 mt-1.5 shrink-0"></span>
+                                            <span>Identificación y selección</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-2 flex items-center gap-2">
+                                    <button onclick="mostrarDetalleSemana('semana15')"
+                                        class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-sky-700 hover:bg-sky-800 active:scale-95 text-white text-xs font-extrabold shadow-sm transition-all duration-200 cursor-pointer">
+                                        <i class="fa-solid fa-book-open-reader"></i>
+                                        <span>Abrir Detalle y Evidencia PDF</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- TARJETA 2: Semana 14 (Acento Menta / Esmeralda Pastel) -->
+                        <article
+                            class="group bg-[#D1FAE5] border-2 border-emerald-200/90 rounded-3xl overflow-hidden shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300 ease-in-out flex flex-col justify-between min-h-[440px]">
+                            <!-- Imagen Superior (>= 45% de la altura visual de la tarjeta: h-56) -->
+                            <div class="h-56 w-full overflow-hidden relative bg-emerald-900 shrink-0">
+                                <img src="./assets/img/semana-14-estructura.jpg"
+                                    alt="Semana 14: Diseño de la estructura organizacional"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-4 left-4 text-xs font-extrabold uppercase tracking-wider text-emerald-950 bg-[#D1FAE5]/95 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-sm">
+                                    Semana 14 · Estructura
+                                </span>
+                            </div>
+
+                            <!-- Parte Inferior con Fondo Pastel Menta -->
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-start justify-between gap-3 mb-3">
+                                        <h3 class="text-lg font-black tracking-tight text-slate-900 leading-snug">
+                                            Diseño de la estructura organizacional
+                                        </h3>
+                                        <button onclick="mostrarDetalleSemana('semana14')"
+                                            title="Ver resumen y opciones de PDF - Semana 14"
+                                            aria-label="Ver detalle de Semana 14"
+                                            class="w-10 h-10 rounded-2xl bg-white text-emerald-700 hover:bg-emerald-600 hover:text-white border border-emerald-200 shadow-sm active:scale-95 flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer">
+                                            <i class="fa-solid fa-eye text-sm"></i>
+                                        </button>
+                                    </div>
+
+                                    <ul
+                                        class="space-y-2 text-sm text-slate-800 font-medium leading-relaxed my-4 bg-white/70 rounded-2xl p-4 border border-emerald-200/60">
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-emerald-600 mt-1.5 shrink-0"></span>
+                                            <span>Cadena de mando</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-emerald-600 mt-1.5 shrink-0"></span>
+                                            <span>Centralización y descentralización</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-2">
+                                    <button onclick="mostrarDetalleSemana('semana14')"
+                                        class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-emerald-700 hover:bg-emerald-800 active:scale-95 text-white text-xs font-extrabold shadow-sm transition-all duration-200 cursor-pointer">
+                                        <i class="fa-solid fa-book-open-reader"></i>
+                                        <span>Abrir Detalle y Evidencia PDF</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- TARJETA 3: Semana 13 (Acento Lavanda / Violeta Pastel) -->
+                        <article
+                            class="group bg-[#EDE9FE] border-2 border-violet-200/90 rounded-3xl overflow-hidden shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300 ease-in-out flex flex-col justify-between min-h-[440px]">
+                            <!-- Imagen Superior (>= 45% de la altura visual de la tarjeta: h-56) -->
+                            <div class="h-56 w-full overflow-hidden relative bg-indigo-950 shrink-0">
+                                <img src="./assets/img/semana-13-planeacion.jpg"
+                                    alt="Semana 13: Estrategias, políticas y premisas de planeación"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-4 left-4 text-xs font-extrabold uppercase tracking-wider text-violet-950 bg-[#EDE9FE]/95 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-sm">
+                                    Semana 13 · Planeación
+                                </span>
+                            </div>
+
+                            <!-- Parte Inferior con Fondo Pastel Lavanda -->
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-start justify-between gap-3 mb-3">
+                                        <h3 class="text-lg font-black tracking-tight text-slate-900 leading-snug">
+                                            Estrategias, políticas y premisas de planeación
+                                        </h3>
+                                        <button onclick="mostrarDetalleSemana('semana13')"
+                                            title="Ver resumen y opciones de PDF - Semana 13"
+                                            aria-label="Ver detalle de Semana 13"
+                                            class="w-10 h-10 rounded-2xl bg-white text-violet-700 hover:bg-violet-600 hover:text-white border border-violet-200 shadow-sm active:scale-95 flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer">
+                                            <i class="fa-solid fa-eye text-sm"></i>
+                                        </button>
+                                    </div>
+
+                                    <ul
+                                        class="space-y-2 text-sm text-slate-800 font-medium leading-relaxed my-4 bg-white/70 rounded-2xl p-4 border border-violet-200/60">
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-violet-600 mt-1.5 shrink-0"></span>
+                                            <span>Matriz FODA</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-violet-600 mt-1.5 shrink-0"></span>
+                                            <span>Plan Estratégico Institucional 2025-2029</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-2">
+                                    <button onclick="mostrarDetalleSemana('semana13')"
+                                        class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-violet-700 hover:bg-violet-800 active:scale-95 text-white text-xs font-extrabold shadow-sm transition-all duration-200 cursor-pointer">
+                                        <i class="fa-solid fa-book-open-reader"></i>
+                                        <span>Abrir Detalle y 2 PDFs</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- TARJETA 4: Semana 11 (Acento Melocotón Pastel) -->
+                        <article
+                            class="group bg-[#FFE5D4] border-2 border-orange-200/90 rounded-3xl overflow-hidden shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300 ease-in-out flex flex-col justify-between min-h-[440px]">
+                            <!-- Imagen Superior (>= 45% de la altura visual de la tarjeta: h-56) -->
+                            <div class="h-56 w-full overflow-hidden relative bg-orange-950 shrink-0">
+                                <img src="./assets/img/semana-11-decisiones.jpg"
+                                    alt="Semana 11: Proceso de Toma de Decisiones"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-4 left-4 text-xs font-extrabold uppercase tracking-wider text-orange-950 bg-[#FFE5D4]/95 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-sm">
+                                    Semana 11 · Decisiones
+                                </span>
+                            </div>
+
+                            <!-- Parte Inferior con Fondo Pastel Melocotón -->
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-start justify-between gap-3 mb-3">
+                                        <h3 class="text-lg font-black tracking-tight text-slate-900 leading-snug">
+                                            Proceso de Toma de Decisiones
+                                        </h3>
+                                        <button onclick="mostrarDetalleSemana('semana11')"
+                                            title="Ver resumen y opciones de PDF - Semana 11"
+                                            aria-label="Ver detalle de Semana 11"
+                                            class="w-10 h-10 rounded-2xl bg-white text-orange-700 hover:bg-orange-600 hover:text-white border border-orange-200 shadow-sm active:scale-95 flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer">
+                                            <i class="fa-solid fa-eye text-sm"></i>
+                                        </button>
+                                    </div>
+
+                                    <ul
+                                        class="space-y-2 text-sm text-slate-800 font-medium leading-relaxed my-4 bg-white/70 rounded-2xl p-4 border border-orange-200/60">
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-orange-600 mt-1.5 shrink-0"></span>
+                                            <span>Etapas y cómo deciden los gerentes</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-orange-600 mt-1.5 shrink-0"></span>
+                                            <span>Tipos de decisiones y Juego gerencial</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-2">
+                                    <button onclick="mostrarDetalleSemana('semana11')"
+                                        class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 active:scale-95 text-white text-xs font-extrabold shadow-sm transition-all duration-200 cursor-pointer">
+                                        <i class="fa-solid fa-book-open-reader"></i>
+                                        <span>Abrir Detalle y Evidencia PDF</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- TARJETA 5: Semana 10 (Acento Ámbar / Sol Pastel) -->
+                        <article
+                            class="group bg-[#FEF3C7] border-2 border-amber-200/90 rounded-3xl overflow-hidden shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300 ease-in-out flex flex-col justify-between min-h-[440px]">
+                            <!-- Imagen Superior (>= 45% de la altura visual de la tarjeta: h-56) -->
+                            <div class="h-56 w-full overflow-hidden relative bg-amber-950 shrink-0">
+                                <img src="./assets/img/semana-10-rse.jpg"
+                                    alt="Semana 10: Responsabilidad Social Empresarial"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-4 left-4 text-xs font-extrabold uppercase tracking-wider text-amber-950 bg-[#FEF3C7]/95 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-sm">
+                                    Semana 10 · RSE y Ética
+                                </span>
+                            </div>
+
+                            <!-- Parte Inferior con Fondo Pastel Ámbar -->
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-start justify-between gap-3 mb-3">
+                                        <h3 class="text-lg font-black tracking-tight text-slate-900 leading-snug">
+                                            Responsabilidad Social Empresarial
+                                        </h3>
+                                        <button onclick="mostrarDetalleSemana('semana10')"
+                                            title="Ver resumen y opciones de PDF - Semana 10"
+                                            aria-label="Ver detalle de Semana 10"
+                                            class="w-10 h-10 rounded-2xl bg-white text-amber-700 hover:bg-amber-600 hover:text-white border border-amber-200 shadow-sm active:scale-95 flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer">
+                                            <i class="fa-solid fa-eye text-sm"></i>
+                                        </button>
+                                    </div>
+
+                                    <ul
+                                        class="space-y-2 text-sm text-slate-800 font-medium leading-relaxed my-4 bg-white/70 rounded-2xl p-4 border border-amber-200/60">
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-amber-600 mt-1.5 shrink-0"></span>
+                                            <span>Caso Volkswagen y comportamiento ético</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-amber-600 mt-1.5 shrink-0"></span>
+                                            <span>Administración verde e impacto ambiental</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-2">
+                                    <button onclick="mostrarDetalleSemana('semana10')"
+                                        class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-amber-600 hover:bg-amber-700 active:scale-95 text-white text-xs font-extrabold shadow-sm transition-all duration-200 cursor-pointer">
+                                        <i class="fa-solid fa-book-open-reader"></i>
+                                        <span>Abrir Detalle y Evidencia PDF</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- TARJETA 6: Semana 9 (Acento Rosa Coral / Rubí Pastel) -->
+                        <article
+                            class="group bg-[#FFE4E6] border-2 border-rose-200/90 rounded-3xl overflow-hidden shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300 ease-in-out flex flex-col justify-between min-h-[440px]">
+                            <!-- Imagen Superior (>= 45% de la altura visual de la tarjeta: h-56) -->
+                            <div class="h-56 w-full overflow-hidden relative bg-rose-950 shrink-0">
+                                <img src="./assets/img/semana-9-cultura.jpg" alt="Semana 9: Cultura organizacional"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-4 left-4 text-xs font-extrabold uppercase tracking-wider text-rose-950 bg-[#FFE4E6]/95 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-sm">
+                                    Semana 9 · Cultura
+                                </span>
+                            </div>
+
+                            <!-- Parte Inferior con Fondo Pastel Rosa Suave -->
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-start justify-between gap-3 mb-3">
+                                        <h3 class="text-lg font-black tracking-tight text-slate-900 leading-snug">
+                                            Cultura organizacional
+                                        </h3>
+                                        <button onclick="mostrarDetalleSemana('semana9')"
+                                            title="Ver resumen y opciones de PDF - Semana 9"
+                                            aria-label="Ver detalle de Semana 9"
+                                            class="w-10 h-10 rounded-2xl bg-white text-rose-700 hover:bg-rose-600 hover:text-white border border-rose-200 shadow-sm active:scale-95 flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer">
+                                            <i class="fa-solid fa-eye text-sm"></i>
+                                        </button>
+                                    </div>
+
+                                    <ul
+                                        class="space-y-2 text-sm text-slate-800 font-medium leading-relaxed my-4 bg-white/70 rounded-2xl p-4 border border-rose-200/60">
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-rose-600 mt-1.5 shrink-0"></span>
+                                            <span>Cómo aprenden los empleados la cultura</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-rose-600 mt-1.5 shrink-0"></span>
+                                            <span>Comprensión del tema</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-2">
+                                    <button onclick="mostrarDetalleSemana('semana9')"
+                                        class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-rose-600 hover:bg-rose-700 active:scale-95 text-white text-xs font-extrabold shadow-sm transition-all duration-200 cursor-pointer">
+                                        <i class="fa-solid fa-book-open-reader"></i>
+                                        <span>Abrir Detalle y Evidencia PDF</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VISTA 2: DETALLE DE SEMANA (CON DOBLE BOTÓN PDF: VISUALIZAR + DESCARGAR)
+                     ========================================== -->
+                <div id="vista-detalle-evidencias" class="hidden transition-all duration-300 opacity-0">
+
+                    <!-- Botón Prominente Superior Izquierdo para Volver -->
+                    <div class="mb-8">
+                        <button onclick="volverAGridEvidencias()"
+                            class="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-white border-2 border-slate-200 shadow-sm hover:shadow-md hover:border-orange-300 active:scale-95 text-sm font-extrabold text-slate-900 transition-all duration-200 cursor-pointer">
+                            <span>⬅ Volver a las evidencias</span>
+                        </button>
+                    </div>
+
+                    <!-- ==========================================
+                         DETALLE: SEMANA 15
+                         ========================================== -->
+                    <article id="detalle-semana15"
+                        class="detalle-semana hidden bg-[#E0F2FE] border-2 border-sky-200 rounded-3xl overflow-hidden shadow-lg">
+                        <div class="h-64 w-full overflow-hidden relative bg-slate-900">
+                            <img src="./assets/img/semana-15-rrhh.jpg" alt="Semana 15"
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-8 right-8">
+                                <span
+                                    class="inline-block text-xs font-extrabold uppercase tracking-widest text-sky-950 bg-[#E0F2FE] px-3.5 py-1 rounded-full mb-2 shadow-sm">
+                                    Semana 15 · Recursos Humanos
+                                </span>
+                                <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+                                    Administración y selección de recursos humanos
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-8 sm:p-12 space-y-8">
+                            <!-- Espacio para Resumen Extenso Manual -->
+                            <div class="bg-white rounded-3xl p-8 border border-sky-200 shadow-sm">
+                                <h4
+                                    class="text-xs font-black uppercase tracking-widest text-sky-700 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    Resumen Extenso de la Actividad
+                                </h4>
+                                <div class="text-slate-700 leading-relaxed space-y-4 font-medium">
+                                    <p>
+                                        <!-- INGRESA AQUÍ EL RESUMEN EXTENSO DE LA SEMANA 15 -->
+                                        El capital humano representa un valor estratégico indispensable para el éxito
+                                        competitivo de cualquier organización, especialmente en el ámbito del desarrollo
+                                        de proyectos de software. Durante la Semana 15, analizamos cómo el proceso de
+                                        administración de recursos humanos está profundamente influenciado por factores
+                                        externos como las agrupaciones sindicales, las leyes laborales gubernamentales y
+                                        las tendencias demográficas cambiantes. Estos elementos externos obligan a las
+                                        empresas tecnológicas a adaptar continuamente sus estrategias de contratación,
+                                        asegurando el cumplimiento normativo y fomentando la diversidad. Para la
+                                        correcta identificación y selección de personal competente, es vital realizar
+                                        una planeación estructurada que contemple un inventario actual de habilidades y
+                                        un análisis detallado de los puestos. El proceso de selección exige herramientas
+                                        que posean alta validez (relación directa con el desempeño esperado) y
+                                        confiabilidad (consistencia en los resultados), con el objetivo fundamental de
+                                        minimizar los costosos errores de rechazo a buenos candidatos o de aceptación de
+                                        perfiles con bajo rendimiento.
+
+                                    </p>
+                                    <p>
+                                        En la actividad práctica correspondiente al "CASO 15 Selección de candidato", se
+                                        simuló la gestión de un equipo encargado de reclutar a dos desarrolladores de
+                                        software para un proyecto de aplicación móvil con una duración de tres meses.
+                                        Para garantizar una elección objetiva, estructuramos una matriz de evaluación
+                                        basada en cinco criterios ponderados: habilidades técnicas (40%), experiencia
+                                        (20%), habilidades blandas (20%), certificaciones (10%) y disponibilidad (10%).
+
+                                    </p>
+                                    <p>
+                                        Se analizó a tres prospectos: Ana López (experiencia avanzada en Java y React
+                                        Native), Carlos Martínez (perfil backend con Python y Django) y Laura Jiménez
+                                        (perfil full stack con JavaScript y Node.js). Aplicando los criterios de nuestra
+                                        matriz, seleccionamos formalmente a Ana López, quien alcanzó la calificación más
+                                        alta con un 70%, y a Laura Jiménez, que obtuvo un 56%. Esta metodología demostró
+                                        cómo la estandarización de los procesos de recursos humanos permite integrar
+                                        equipos técnicos altamente capacitados y alinear el talento humano con los
+                                        objetivos operativos de la organización.
+
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Lista de Temas y Doble Botón de Evidencia PDF -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                                <div class="lg:col-span-5 bg-white/90 rounded-3xl p-7 border border-sky-200 shadow-xs">
+                                    <h4 class="text-xs font-black uppercase tracking-widest text-sky-700 mb-4">
+                                        Temas Abordados en la Semana
+                                    </h4>
+                                    <ul class="space-y-3 text-sm font-semibold text-slate-800 leading-relaxed">
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Factores externos en la administración de RRHH</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Identificación y selección de empleados competentes</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Grupo de Dos Botones Interactivos (Visualizar + Descargar PDF) -->
+                                <div
+                                    class="lg:col-span-7 bg-white rounded-3xl p-7 border-2 border-sky-300 shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <span
+                                            class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-sky-700 mb-1">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                            Entregable Académico
+                                        </span>
+                                        <h5 class="text-xl font-black text-slate-900 mb-2">Tarea CASO 15</h5>
+                                        <p class="text-xs text-slate-500 mb-6">
+                                            Elige <strong>Visualizar Evidencia</strong> para abrir el documento en una
+                                            nueva pestaña del navegador o <strong>Descargar PDF</strong> para guardarlo
+                                            en tu equipo.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                                        <!-- Botón Primario: Visualizar Evidencia (Nueva Pestaña) -->
+                                        <a href="./assets/docs/caso15.pdf" target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 active:scale-95 text-white text-sm font-extrabold shadow-md hover:shadow-lg transition-all duration-200">
+                                            <i class="fa-solid fa-eye"></i>
+                                            <span>Visualizar Evidencia</span>
+                                        </a>
+                                        <!-- Botón Secundario Outline: Descargar PDF -->
+                                        <a href="./assets/docs/caso15.pdf" download
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-white hover:bg-sky-50 active:scale-95 text-sky-800 border-2 border-sky-600 text-sm font-extrabold transition-all duration-200">
+                                            <i class="fa-solid fa-download"></i>
+                                            <span>Descargar PDF</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ==========================================
+                         DETALLE: SEMANA 14
+                         ========================================== -->
+                    <article id="detalle-semana14"
+                        class="detalle-semana hidden bg-[#D1FAE5] border-2 border-emerald-200 rounded-3xl overflow-hidden shadow-lg">
+                        <div class="h-64 w-full overflow-hidden relative bg-slate-900">
+                            <img src="./assets/img/semana-14-estructura.jpg" alt="Semana 14"
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-8 right-8">
+                                <span
+                                    class="inline-block text-xs font-extrabold uppercase tracking-widest text-emerald-950 bg-[#D1FAE5] px-3.5 py-1 rounded-full mb-2 shadow-sm">
+                                    Semana 14 · Estructura Organizacional
+                                </span>
+                                <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+                                    Diseño de la estructura organizacional
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-8 sm:p-12 space-y-8">
+                            <!-- Espacio para Resumen Extenso Manual -->
+                            <div class="bg-white rounded-3xl p-8 border border-emerald-200 shadow-sm">
+                                <h4
+                                    class="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    Resumen Extenso de la Actividad
+                                </h4>
+                                <div class="text-slate-700 leading-relaxed space-y-4 font-medium">
+                                    <p style="text-align: justify;">Durante esta semana analizamos cómo el diseño de la
+                                        estructura organizacional determina la eficiencia y adaptabilidad de una
+                                        empresa. Se exploraron seis elementos clave para su configuración: la
+                                        especialización del trabajo, la departamentalización, la cadena de mando, el
+                                        tramo de control, la centralización o descentralización de decisiones, y la
+                                        formalización de procesos.</p>
+
+                                    <p style="text-align: justify;">En el ámbito de la informática, las estructuras
+                                        tienden a requerir un alto grado de flexibilidad. La especialización se balancea
+                                        permitiendo a los desarrolladores asumir roles variados para evitar la
+                                        monotonía, mientras que los equipos suelen organizarse mediante una
+                                        departamentalización híbrida (por producto y función). Asimismo, la industria
+                                        tecnológica favorece la descentralización para agilizar la toma de decisiones
+                                        técnicas locales y mantiene niveles de formalización que aseguran la calidad del
+                                        software sin asfixiar la innovación ágil.</p>
+
+                                    <h3>Actividad Práctica: CASO TechSolutions</h3>
+
+                                    <p style="text-align: justify;">En la actividad grupal aplicamos estos principios
+                                        teóricos para reestructurar TechSolutions, una empresa de desarrollo de software
+                                        que experimentó una caída en su productividad tras crecer rápidamente a 250
+                                        empleados, enfrentando problemas de centralización excesiva y gerentes saturados
+                                        con hasta 35 empleados bajo su cargo[cite: 6].</p>
+
+                                    <p style="text-align: justify;">A través del análisis y diseño organizacional,
+                                        implementamos las siguientes soluciones:</p>
+
+                                    <ul style="text-align: justify;">
+                                        <li><strong>Cadena de Mando y Tramo de Control:</strong> Se rediseñó la cadena
+                                            de mando separando las responsabilidades de supervisión: un Gerente Técnico
+                                            encargado del desempeño y la calidad del código, y un Gerente de Proyectos
+                                            enfocado en los cronogramas y tareas diarias. Para optimizar el
+                                            tramo de control, se determinó que cada supervisor debe manejar un máximo de
+                                            7 a 10 empleados. En el organigrama diseñado, esto se reflejó
+                                            mediante la creación de células de trabajo, donde cada Líder Técnico
+                                            supervisa directamente a 7 desarrolladores y reporta a la Gerencia de
+                                            Desarrollo.</li>
+                                        <li><strong>Equilibrio entre Centralización y Descentralización:</strong> Se
+                                            implementó una descentralización estratégica delegando a las gerencias la
+                                            elección de herramientas, la resolución de problemas técnicos y el manejo de
+                                            un presupuesto trimestral fijo sin requerir autorización superior
+                                            El Director General mantiene centralizadas las alianzas corporativas,
+                                            los presupuestos anuales y las estrategias a largo plazo, evaluando los
+                                            resultados mediante métricas mensuales.</li>
+                                        <li><strong>Formalización de Procesos Técnicos:</strong> Se introdujeron
+                                            Procedimientos Operativos Estándar para asegurar la calidad de las entregas
+                                            al cliente. En el área de desarrollo, se estandarizó la revisión de
+                                            código por pares obligatoria antes de cualquier integración, otorgando
+                                            simultáneamente libertad a los programadores para elegir sus enfoques
+                                            algorítmicos. Desde la Gerencia de Calidad (QA) —rol que asumí
+                                            dentro de la nueva estructura organizacional—, se implementó una compuerta
+                                            de liberación rigurosa. Esta política exige completar una matriz de
+                                            pruebas de regresión, estrés y seguridad, y bloquea el despliegue del
+                                            software si existen incidencias de nivel "Alto" o "Crítico", dejando un
+                                            margen posterior de autonomía para realizar testing exploratorio.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Lista de Temas y Doble Botón de Evidencia PDF -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                                <div
+                                    class="lg:col-span-5 bg-white/90 rounded-3xl p-7 border border-emerald-200 shadow-xs">
+                                    <h4 class="text-xs font-black uppercase tracking-widest text-emerald-700 mb-4">
+                                        Temas Abordados en la Semana
+                                    </h4>
+                                    <ul class="space-y-3 text-sm font-semibold text-slate-800 leading-relaxed">
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Cadena de mando</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Centralización y descentralización</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Grupo de Dos Botones Interactivos (Visualizar + Descargar PDF) -->
+                                <div
+                                    class="lg:col-span-7 bg-white rounded-3xl p-7 border-2 border-emerald-300 shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <span
+                                            class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-emerald-700 mb-1">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                            Entregable Académico
+                                        </span>
+                                        <h5 class="text-xl font-black text-slate-900 mb-2">Tarea CASO Semana 14</h5>
+                                        <p class="text-xs text-slate-500 mb-6">
+                                            Elige <strong>Visualizar Evidencia</strong> para abrir el documento en una
+                                            nueva pestaña del navegador o <strong>Descargar PDF</strong> para guardarlo
+                                            en tu equipo.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                                        <!-- Botón Primario: Visualizar Evidencia -->
+                                        <a href="./assets/docs/caso-semana-14.pdf" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-sm font-extrabold shadow-md hover:shadow-lg transition-all duration-200">
+                                            <i class="fa-solid fa-eye"></i>
+                                            <span>Visualizar Evidencia</span>
+                                        </a>
+                                        <!-- Botón Secundario Outline: Descargar PDF -->
+                                        <a href="./assets/docs/caso-semana-14.pdf" download
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-white hover:bg-emerald-50 active:scale-95 text-emerald-800 border-2 border-emerald-600 text-sm font-extrabold transition-all duration-200">
+                                            <i class="fa-solid fa-download"></i>
+                                            <span>Descargar PDF</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ==========================================
+                         DETALLE: SEMANA 13
+                         ========================================== -->
+                    <article id="detalle-semana13"
+                        class="detalle-semana hidden bg-[#EDE9FE] border-2 border-violet-200 rounded-3xl overflow-hidden shadow-lg">
+                        <div class="h-64 w-full overflow-hidden relative bg-slate-900">
+                            <img src="./assets/img/semana-13-planeacion.jpg" alt="Semana 13"
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-8 right-8">
+                                <span
+                                    class="inline-block text-xs font-extrabold uppercase tracking-widest text-violet-950 bg-[#EDE9FE] px-3.5 py-1 rounded-full mb-2 shadow-sm">
+                                    Semana 13 · Planeación Estratégica
+                                </span>
+                                <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+                                    Estrategias, políticas y premisas de planeación
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-8 sm:p-12 space-y-8">
+                            <!-- Espacio para Resumen Extenso Manual -->
+                            <div class="bg-white rounded-3xl p-8 border border-violet-200 shadow-sm">
+                                <h4
+                                    class="text-xs font-black uppercase tracking-widest text-violet-700 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    Resumen Extenso de la Actividad
+                                </h4>
+                                <div class="text-slate-700 leading-relaxed space-y-4 font-medium">
+                                    <h3>Resumen de la Semana 13: Estrategias, Políticas y Matriz FODA</h3>
+
+                                    <p style="text-align: justify;">Durante esta semana exploramos la planeación
+                                        estratégica, un proceso fundamental que permite analizar la situación actual y
+                                        futura de una organización para definir su rumbo. Comprendimos que las
+                                        estrategias trazan la dirección a largo plazo para el uso de recursos, mientras
+                                        que las políticas establecen los límites y criterios para la toma de decisiones.
+                                        En el ámbito de la informática, la planeación estratégica es comparable al ciclo
+                                        de vida del desarrollo de un proyecto: requiere un análisis del entorno
+                                        tecnológico, la definición de requerimientos (misión y visión), la ejecución
+                                        táctica (desarrollo) y un control riguroso (pruebas de calidad).</p>
+
+                                    <p style="text-align: justify;">Una herramienta central para este análisis es la
+                                        Matriz FODA, la cual evalúa factores internos (Fortalezas y Debilidades) y
+                                        externos (Oportunidades y Amenazas). Su correcta aplicación permite a los
+                                        equipos tecnológicos diseñar estrategias que capitalicen sus ventajas técnicas y
+                                        oportunidades de mercado, al mismo tiempo que mitigan los riesgos y compensan
+                                        sus debilidades operativas o financieras.</p>
+
+                                    <h3>Actividad Práctica: Caso FODA y Plan Estratégico (Nexa IA)</h3>
+
+                                    <p style="text-align: justify;">Para la aplicación práctica, simulamos ser el equipo
+                                        directivo de "Nexa IA", una startup tecnológica orientada a desarrollar
+                                        inteligencia artificial privada y confiable para análisis de datos. En este caso
+                                        asumí el rol de Director de Operaciones, trabajando junto a los directores de
+                                        Tecnología, Marketing, Finanzas y Recursos Humanos.</p>
+
+                                    <p style="text-align: justify;">A través de nuestra Matriz FODA, identificamos
+                                        nuestras ventajas y retos críticos:</p>
+                                    <ul style="text-align: justify;">
+                                        <li><strong>Fortalezas:</strong> Contamos con tecnología propia que corre en los
+                                            servidores del cliente sin enviar datos a la nube, modelos explicables y un
+                                            equipo experto en machine learning e ingeniería de datos.</li>
+                                        <li><strong>Debilidades:</strong> Identificamos recursos financieros limitados,
+                                            falta de experiencia en ventas corporativas y un alto costo de cómputo para
+                                            entrenar los modelos.</li>
+                                        <li><strong>Oportunidades:</strong> Detectamos una fuerte demanda en industrias
+                                            reguladas (banca, salud, seguros) que requieren IA pero no pueden exponer
+                                            sus datos a servicios externos, sumado a un mercado latinoamericano con poca
+                                            oferta local.</li>
+                                        <li><strong>Amenazas:</strong> Nos enfrentamos a gigantes tecnológicos con
+                                            plataformas de IA, escasez de talento por la competencia salarial y
+                                            normativas estrictas sobre protección de datos.</li>
+                                    </ul>
+
+                                    <p style="text-align: justify;">Con base en este diagnóstico, establecimos la visión
+                                        de ser líderes en Latinoamérica en IA privada para industrias reguladas. Para
+                                        lograrlo, descartamos el liderazgo en costos y optamos por una
+                                        <strong>estrategia de diferenciación</strong>: competir con la garantía de que
+                                        los datos nunca salen de la empresa y los resultados son explicables, lo cual
+                                        justifica un precio superior ante clientes corporativos altamente regulados.
+                                        Fijamos objetivos medibles, como firmar 25 clientes corporativos, alcanzar
+                                        Q40,000.00 de ingreso recurrente mensual y cerrar una ronda semilla de
+                                        Q500,000.00 para invertir en talento humano e infraestructura tecnológica.
+                                        Finalmente, definimos KPIs estrictos para controlar nuestro avance, midiendo la
+                                        precisión de los modelos (≥90%), los tiempos de despliegue y la reducción de
+                                        costos de cómputo.
+                                    </p>
+
+                                    <h3>Ejemplo Real: Plan Estratégico Institucional UVG</h3>
+
+                                    <p style="text-align: justify;">Para concluir la semana, el docente nos compartió
+                                        como referente práctico el Plan Estratégico Institucional (PEI) 2025-2029 de la
+                                        Universidad del Valle de Guatemala. Este documento nos permitió visualizar cómo
+                                        una organización real estructura su planeación mediante el fortalecimiento de su
+                                        "Core" (excelencia académica e investigación), la incursión en "Adyacencias"
+                                        (nuevos modelos educativos y expansión) y el despliegue de habilitadores
+                                        transversales como la transformación digital y el modelo operativo, todo
+                                        alineado para cumplir su misión de desarrollar agentes de cambio.</p>
+                                </div>
+                            </div>
+
+                            <!-- Lista de Temas y Doble Botón de Evidencia PDF -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                                <div
+                                    class="lg:col-span-5 bg-white/90 rounded-3xl p-7 border border-violet-200 shadow-xs">
+                                    <h4 class="text-xs font-black uppercase tracking-widest text-violet-700 mb-4">
+                                        Temas Abordados en la Semana
+                                    </h4>
+                                    <ul class="space-y-3 text-sm font-semibold text-slate-800 leading-relaxed">
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Matriz FODA</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Análisis del Plan Estratégico Institucional 2025-2029</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Grupo de Dos Botones Interactivos para los Documentos de la Semana 13 -->
+                                <div
+                                    class="lg:col-span-7 bg-white rounded-3xl p-7 border-2 border-violet-300 shadow-sm space-y-6">
+                                    <!-- Documento 1: Tarea Caso FODA -->
+                                    <div>
+                                        <span
+                                            class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-violet-700 mb-1">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                            Entregable Principal
+                                        </span>
+                                        <h5 class="text-lg font-black text-slate-900 mb-3">Tarea Caso FODA</h5>
+                                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                                            <a href="./assets/docs/tarea-caso-foda.pdf" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-violet-600 hover:bg-violet-700 active:scale-95 text-white text-sm font-extrabold shadow-md transition-all duration-200">
+                                                <i class="fa-solid fa-eye"></i>
+                                                <span>Visualizar Evidencia</span>
+                                            </a>
+                                            <a href="./assets/docs/tarea-caso-foda.pdf" download
+                                                class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-white hover:bg-violet-50 active:scale-95 text-violet-800 border-2 border-violet-600 text-sm font-extrabold transition-all duration-200">
+                                                <i class="fa-solid fa-download"></i>
+                                                <span>Descargar PDF</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Documento 2: Plan Estratégico Institucional 2025-2029 -->
+                                    <div class="pt-4 border-t border-violet-100">
+                                        <span
+                                            class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-slate-500 mb-1">
+                                            <i class="fa-solid fa-book"></i>
+                                            Documento Base de Análisis
+                                        </span>
+                                        <h5 class="text-base font-extrabold text-slate-900 mb-3">Plan Estratégico
+                                            Institucional 2025-2029</h5>
+                                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                                            <a href="./assets/docs/plan-estrategico-institucional-2025-2029.pdf"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-900 active:scale-95 text-white text-xs font-bold transition-all duration-200">
+                                                <i class="fa-solid fa-eye"></i>
+                                                <span>Visualizar Plan (PDF)</span>
+                                            </a>
+                                            <a href="./assets/docs/plan-estrategico-institucional-2025-2029.pdf"
+                                                download
+                                                class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 active:scale-95 text-slate-800 border-2 border-slate-300 text-xs font-bold transition-all duration-200">
+                                                <i class="fa-solid fa-download"></i>
+                                                <span>Descargar Plan (PDF)</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ==========================================
+                         DETALLE: SEMANA 11
+                         ========================================== -->
+                    <article id="detalle-semana11"
+                        class="detalle-semana hidden bg-[#FFE5D4] border-2 border-orange-200 rounded-3xl overflow-hidden shadow-lg">
+                        <div class="h-64 w-full overflow-hidden relative bg-slate-900">
+                            <img src="./assets/img/semana-11-decisiones.jpg" alt="Semana 11"
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-8 right-8">
+                                <span
+                                    class="inline-block text-xs font-extrabold uppercase tracking-widest text-orange-950 bg-[#FFE5D4] px-3.5 py-1 rounded-full mb-2 shadow-sm">
+                                    Semana 11 · Toma de Decisiones
+                                </span>
+                                <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+                                    Proceso de Toma de Decisiones
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-8 sm:p-12 space-y-8">
+                            <!-- Espacio para Resumen Extenso Manual -->
+                            <div class="bg-white rounded-3xl p-8 border border-orange-200 shadow-sm">
+                                <h4
+                                    class="text-xs font-black uppercase tracking-widest text-orange-700 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    Resumen Extenso de la Actividad
+                                </h4>
+                                <div class="text-slate-700 leading-relaxed space-y-4 font-medium">
+                                    <h3>Resumen de la Semana 11: Proceso de Toma de Decisiones</h3>
+
+                                    <p style="text-align: justify;">Durante la Semana 11, abordamos el proceso de toma
+                                        de decisiones, una habilidad fundamental en la administración que impacta
+                                        directamente en el desempeño organizacional en todas sus funciones (planear,
+                                        organizar, dirigir y controlar). Este proceso no se limita simplemente a elegir
+                                        entre opciones, sino que abarca una serie de etapas estructuradas: comienza con
+                                        la identificación del problema y de los criterios relevantes de decisión,
+                                        continúa con la ponderación de dichos criterios (asignando un peso según su
+                                        importancia), y avanza hacia el desarrollo, análisis y selección de la mejor
+                                        alternativa. El ciclo concluye con la implementación de la opción elegida y la
+                                        posterior evaluación de su efectividad.</p>
+
+                                    <p style="text-align: justify;">En el entorno gerencial, la toma de decisiones
+                                        navega entre la teoría de la racionalidad pura y la realidad de la racionalidad
+                                        limitada. Mientras que la racionalidad ideal asume que el gerente es
+                                        completamente objetivo, posee toda la información y busca la máxima perfección
+                                        lógica, la realidad demuestra que los gerentes enfrentan límites en su capacidad
+                                        para procesar datos. Esto los lleva a aplicar la "racionalidad limitada",
+                                        optando por soluciones que son lo suficientemente buenas o aceptables dadas las
+                                        restricciones de tiempo, cultura empresarial o políticas. Asimismo, aprendimos
+                                        que el análisis metódico suele complementarse con el enfoque intuitivo, donde la
+                                        experiencia acumulada y el criterio personal permiten reaccionar con agilidad y
+                                        eficacia.</p>
+
+                                    <h3>Actividad Práctica: Proceso de Licitación y Selección de Proveedor (TechNova,
+                                        S.A.)</h3>
+
+                                    <p style="text-align: justify;">En la aplicación práctica de la semana, asumimos el
+                                        rol de un comité evaluador encargado de recomendar la adquisición de un nuevo
+                                        sistema de gestión de proyectos para TechNova, S.A. Evaluamos a tres
+                                        proveedores: ProjectFlow Solutions, TaskPro Latinoamérica y Nexus Digital
+                                        Systems. El primer paso consistió en homologar las ofertas para compararlas
+                                        objetivamente; en este proceso descubrimos, por ejemplo, que TaskPro parecía más
+                                        económico pero requería un pago adicional de Q18,000 para integrar GitHub, lo
+                                        cual alteraba su costo real para la empresa.</p>
+
+                                    <p style="text-align: justify;">Para tomar una decisión fundamentada, desarrollamos
+                                        una matriz asignando ponderaciones precisas a cinco criterios clave: Costo total
+                                        (25%), Compatibilidad e integración (25%), Facilidad de uso (20%), Soporte
+                                        técnico (15%) y Escalabilidad (15%). Tras realizar la evaluación técnica y
+                                        financiera con base en las cotizaciones provistas, TaskPro obtuvo el puntaje más
+                                        bajo (74 puntos) debido a sus limitaciones de escalabilidad (máximo 200
+                                        usuarios) y menor robustez técnica. ProjectFlow Solutions se posicionó como una
+                                        alternativa equilibrada con 89 puntos.</p>
+
+                                    <p style="text-align: justify;">Finalmente, mediante nuestra Acta de Recomendación,
+                                        adjudicamos el proyecto a Nexus Digital Systems, alternativa que logró la mayor
+                                        calificación con 92.75 puntos sobre 100. Nuestra justificación se basó en que, a
+                                        pesar de tener un precio base mayor (dentro de presupuesto), ofrece licencias
+                                        para usuarios ilimitados (vital para el crecimiento de TechNova), cumple con
+                                        todas las herramientas colaborativas requeridas y garantiza un acompañamiento
+                                        robusto. El único riesgo que identificamos fue la posible complejidad de
+                                        adopción inicial por parte del equipo, lo cual deberá ser mitigado aprovechando
+                                        la capacitación incluida en la oferta.</p>
+                                </div>
+                            </div>
+
+                            <!-- Lista de Temas y Doble Botón de Evidencia PDF -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                                <div
+                                    class="lg:col-span-5 bg-white/90 rounded-3xl p-7 border border-orange-200 shadow-xs">
+                                    <h4 class="text-xs font-black uppercase tracking-widest text-orange-700 mb-4">
+                                        Temas Abordados en la Semana
+                                    </h4>
+                                    <ul class="space-y-3 text-sm font-semibold text-slate-800 leading-relaxed">
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Etapas del proceso de toma de decisiones</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Cómo toman decisiones los gerentes</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Tipos de decisiones y Juego de decisiones</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Grupo de Dos Botones Interactivos (Visualizar + Descargar PDF) -->
+                                <div
+                                    class="lg:col-span-7 bg-white rounded-3xl p-7 border-2 border-orange-300 shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <span
+                                            class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-orange-700 mb-1">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                            Entregable Académico
+                                        </span>
+                                        <h5 class="text-xl font-black text-slate-900 mb-2">Proceso de licitación y
+                                            selección de proveedor</h5>
+                                        <p class="text-xs text-slate-500 mb-6">
+                                            Elige <strong>Visualizar Evidencia</strong> para abrir el documento en una
+                                            nueva pestaña del navegador o <strong>Descargar PDF</strong> para guardarlo
+                                            en tu equipo.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                                        <!-- Botón Primario: Visualizar Evidencia -->
+                                        <a href="./assets/docs/licitacion-seleccion-proveedor.pdf" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 active:scale-95 text-white text-sm font-extrabold shadow-md hover:shadow-lg transition-all duration-200">
+                                            <i class="fa-solid fa-eye"></i>
+                                            <span>Visualizar Evidencia</span>
+                                        </a>
+                                        <!-- Botón Secundario Outline: Descargar PDF -->
+                                        <a href="./assets/docs/licitacion-seleccion-proveedor.pdf" download
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-white hover:bg-orange-50 active:scale-95 text-orange-800 border-2 border-orange-600 text-sm font-extrabold transition-all duration-200">
+                                            <i class="fa-solid fa-download"></i>
+                                            <span>Descargar PDF</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ==========================================
+                         DETALLE: SEMANA 10
+                         ========================================== -->
+                    <article id="detalle-semana10"
+                        class="detalle-semana hidden bg-[#FEF3C7] border-2 border-amber-200 rounded-3xl overflow-hidden shadow-lg">
+                        <div class="h-64 w-full overflow-hidden relative bg-slate-900">
+                            <img src="./assets/img/semana-10-rse.jpg" alt="Semana 10"
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-8 right-8">
+                                <span
+                                    class="inline-block text-xs font-extrabold uppercase tracking-widest text-amber-950 bg-[#FEF3C7] px-3.5 py-1 rounded-full mb-2 shadow-sm">
+                                    Semana 10 · Ética y Sostenibilidad
+                                </span>
+                                <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+                                    Responsabilidad Social Empresarial
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-8 sm:p-12 space-y-8">
+                            <!-- Espacio para Resumen Extenso Manual -->
+                            <div class="bg-white rounded-3xl p-8 border border-amber-200 shadow-sm">
+                                <h4
+                                    class="text-xs font-black uppercase tracking-widest text-amber-700 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    Resumen Extenso de la Actividad
+                                </h4>
+                                <div class="text-slate-700 leading-relaxed space-y-4 font-medium">
+                                    <h3>Resumen de la Semana 10: Responsabilidad Social Empresarial (RSE) y Ética</h3>
+
+                                    <p style="text-align: justify;">Durante la Semana 10, exploramos la Responsabilidad
+                                        Social Empresarial (RSE), un enfoque estratégico mediante el cual las
+                                        organizaciones integran voluntariamente preocupaciones sociales, ambientales y
+                                        económicas en sus operaciones. El modelo de RSE se sostiene sobre tres pilares
+                                        fundamentales: la Responsabilidad Económica (generación sostenible de valor y
+                                        empleo), la Responsabilidad Social (compromiso con la equidad y el bienestar de
+                                        la comunidad) y la Responsabilidad Medioambiental (minimización del impacto
+                                        ecológico y fomento de la sostenibilidad). Además, analizamos el concepto de
+                                        "Administración Verde", donde las empresas avanzan desde el simple cumplimiento
+                                        normativo hasta enfoques activistas para proteger los recursos naturales,
+                                        apoyándose en certificaciones como ISO 14000 y metodologías de reporte como GRI.
+                                    </p>
+
+                                    <p style="text-align: justify;">En el contexto de la informática, la RSE y la ética
+                                        gerencial son críticas. Las decisiones sobre diseño de software (ej. algoritmos
+                                        sin sesgos o accesibilidad), la gestión responsable de datos (privacidad y
+                                        ciberseguridad) y el desarrollo de hardware (eficiencia energética y gestión de
+                                        residuos electrónicos) poseen un profundo impacto social y ambiental.
+                                        Comprendimos que el comportamiento ético de los gerentes frente a estos dilemas
+                                        está influenciado por su etapa de desarrollo moral (desde la obediencia por
+                                        castigo hasta la adhesión a principios éticos universales), así como por las
+                                        estructuras y sistemas de evaluación de la organización, que pueden tanto
+                                        fomentar la integridad como incentivar prácticas inmorales bajo presión.</p>
+
+                                    <h3>Actividad Práctica: Caso de Análisis - RSE en la Industria Tecnológica</h3>
+
+                                    <p style="text-align: justify;">Para la actividad práctica asincrónica, fuimos
+                                        asignados al "Grupo 1" para analizar el impacto ético y social del "Desarrollo
+                                        de Software con Funcionalidades Ocultas o Malintencionadas", tomando como
+                                        ejemplo una aplicación que recopila y vende datos de geolocalización sin
+                                        consentimiento del usuario. Elaboramos una presentación colaborativa donde
+                                        detallamos nuestras conclusiones.</p>
+
+                                    <p style="text-align: justify;">En nuestro análisis, identificamos el impacto
+                                        potencial de estas prácticas, destacando la pérdida de control sobre la
+                                        identidad digital del usuario (con riesgos de fraude o acoso), el daño a la
+                                        reputación corporativa por crisis públicas y rechazo de inversores, severas
+                                        consecuencias legales como demandas colectivas, y una erosión general de la
+                                        confianza pública hacia la inteligencia artificial y los dispositivos
+                                        conectados.</p>
+
+                                    <p style="text-align: justify;">Al comparar esta situación con el escándalo de
+                                        emisiones de Volkswagen, encontramos claras similitudes: en ambos escenarios
+                                        existe un engaño deliberado motivado por la rentabilidad o la ventaja
+                                        competitiva, y los daños (ya sean emisiones tóxicas o recolección silenciosa de
+                                        datos) afectan masiva e invisiblemente a las personas sin que el perjuicio se
+                                        note de inmediato. Sin embargo, también establecimos diferencias importantes:
+                                        mientras Volkswagen causó daños físicos y ambientales (contaminación del aire),
+                                        la mala gestión de datos genera daños psicológicos, sociales y financieros
+                                        (pérdida de privacidad); además, el método de infracción difiere entre usar
+                                        software para burlar pruebas físicas frente al uso opaco de información y
+                                        negligencia en ciberseguridad.</p>
+
+                                    <p style="text-align: justify;">Concluimos que el desarrollo de software debe ir más
+                                        allá de la simple funcionalidad, integrando principios de transparencia, ética y
+                                        seguridad desde su concepción. La RSE no es opcional en la tecnología, sino un
+                                        marco vital para proteger a los usuarios y mantener la legitimidad de las
+                                        empresas tecnológicas en la sociedad moderna.</p>
+                                </div>
+                            </div>
+
+                            <!-- Lista de Temas y Doble Botón de Evidencia PDF -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                                <div
+                                    class="lg:col-span-5 bg-white/90 rounded-3xl p-7 border border-amber-200 shadow-xs">
+                                    <h4 class="text-xs font-black uppercase tracking-widest text-amber-700 mb-4">
+                                        Temas Abordados en la Semana
+                                    </h4>
+                                    <ul class="space-y-3 text-sm font-semibold text-slate-800 leading-relaxed">
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Caso Volkswagen y comportamiento ético</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Administración verde y medición de impacto ambiental</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Grupo de Dos Botones Interactivos (Visualizar + Descargar PDF) -->
+                                <div
+                                    class="lg:col-span-7 bg-white rounded-3xl p-7 border-2 border-amber-300 shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <span
+                                            class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-amber-700 mb-1">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                            Entregable Académico
+                                        </span>
+                                        <h5 class="text-xl font-black text-slate-900 mb-2">Tarea Caso de Análisis
+                                            Asincrónico</h5>
+                                        <p class="text-xs text-slate-500 mb-6">
+                                            Elige <strong>Visualizar Evidencia</strong> para abrir el documento en una
+                                            nueva pestaña del navegador o <strong>Descargar PDF</strong> para guardarlo
+                                            en tu equipo.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                                        <!-- Botón Primario: Visualizar Evidencia -->
+                                        <a href="./assets/docs/caso-analisis-asincronico.pdf" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-amber-600 hover:bg-amber-700 active:scale-95 text-white text-sm font-extrabold shadow-md hover:shadow-lg transition-all duration-200">
+                                            <i class="fa-solid fa-eye"></i>
+                                            <span>Visualizar Evidencia</span>
+                                        </a>
+                                        <!-- Botón Secundario Outline: Descargar PDF -->
+                                        <a href="./assets/docs/caso-analisis-asincronico.pdf" download
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-white hover:bg-amber-50 active:scale-95 text-amber-800 border-2 border-amber-600 text-sm font-extrabold transition-all duration-200">
+                                            <i class="fa-solid fa-download"></i>
+                                            <span>Descargar PDF</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ==========================================
+                         DETALLE: SEMANA 9
+                         ========================================== -->
+                    <article id="detalle-semana9"
+                        class="detalle-semana hidden bg-[#FFE4E6] border-2 border-rose-200 rounded-3xl overflow-hidden shadow-lg">
+                        <div class="h-64 w-full overflow-hidden relative bg-slate-900">
+                            <img src="./assets/img/semana-9-cultura.jpg" alt="Semana 9"
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-8 right-8">
+                                <span
+                                    class="inline-block text-xs font-extrabold uppercase tracking-widest text-rose-950 bg-[#FFE4E6] px-3.5 py-1 rounded-full mb-2 shadow-sm">
+                                    Semana 9 · Identidad Organizacional
+                                </span>
+                                <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+                                    Cultura organizacional
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-8 sm:p-12 space-y-8">
+                            <!-- Espacio para Resumen Extenso Manual -->
+                            <div class="bg-white rounded-3xl p-8 border border-rose-200 shadow-sm">
+                                <h4
+                                    class="text-xs font-black uppercase tracking-widest text-rose-700 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    Resumen Extenso de la Actividad
+                                </h4>
+                                <div class="text-slate-700 leading-relaxed space-y-4 font-medium">
+                                    <h3>Resumen de la Semana 9: Cultura Organizacional</h3>
+
+                                    <p style="text-align: justify;">Esta semana abordamos la cultura organizacional,
+                                        comprendida como la "personalidad" de una empresa. Se define como el conjunto de
+                                        valores, principios, tradiciones y formas de operar que guían el comportamiento
+                                        de sus miembros. La cultura se caracteriza por ser una <em>percepción</em> (se
+                                        siente y experimenta, no se toca), <em>descriptiva</em> (se basa en cómo los
+                                        empleados la perciben, independientemente de si les gusta) y <em>compartida</em>
+                                        (la mayoría de los miembros la describen de forma similar a pesar de tener
+                                        distintos roles).</p>
+
+                                    <p style="text-align: justify;">Para que la cultura no quede solo en un documento,
+                                        los empleados la aprenden a través de siete mecanismos clave: la socialización
+                                        (inducción y mentoría), historias y narrativas, rituales y ceremonias, símbolos
+                                        y artefactos (diseño de oficinas o código de vestimenta), lenguaje (jerga
+                                        interna), normas y políticas, y finalmente, mediante la imitación y el
+                                        aprendizaje informal (observando cómo reaccionan los demás).</p>
+
+                                    <h3>Actividad Práctica: "Tu primer mes en ByteNova"</h3>
+
+                                    <p style="text-align: justify;">En la actividad grupal resolvimos el caso de
+                                        ByteNova, una empresa de desarrollo de software que creció rápidamente y cuya
+                                        cultura de autonomía e innovación se estaba diluyendo. El diagnóstico mostró que
+                                        los nuevos empleados, al recibir solo una presentación teórica de dos horas,
+                                        desarrollaron miedo a equivocarse, falta de autonomía y nula colaboración entre
+                                        los departamentos de desarrollo y soporte técnico.</p>
+
+                                    <p style="text-align: justify;">Para solucionarlo, diseñamos un <strong>Plan de
+                                            Integración Cultural de 30 días</strong> basado en el principio de que "cada
+                                        valor debe aparecer en una experiencia real". Implementamos los
+                                        siguientes mecanismos accionables:</p>
+                                    <ul style="text-align: justify;">
+                                        <li><strong>Historias y narrativas (Día 1):</strong> Un gerente relata un
+                                            proyecto que fracasó para fomentar la apertura y mostrar que es seguro
+                                            aprender del error.</li>
+                                        <li><strong>Socialización (Días 1-30):</strong> Asignación de un mentor cultural
+                                            de otra área, con reuniones bisemanales para construir confianza y
+                                            colaboración transversal.</li>
+                                        <li><strong>Aprendizaje informal (Días 2-5):</strong> El nuevo colaborador
+                                            acompaña a soporte técnico medio día para escuchar casos reales, fomentando
+                                            la orientación al cliente.</li>
+                                        <li><strong>Normas y políticas (Días 6-20):</strong> Se le pide al empleado que
+                                            tome una decisión de bajo riesgo sin autorización previa, registrando su
+                                            criterio y aprendizaje, para forzar la autonomía.</li>
+                                        <li><strong>Rituales y Ceremonias (Semanas 1-4):</strong> Reuniones de viernes
+                                            donde los equipos comparten qué intentaron, qué falló y qué mejoraron en la
+                                            semana.</li>
+                                    </ul>
+
+                                    <p style="text-align: justify;">Consideramos que la actividad de mayor impacto es un
+                                        <em>Reto Interdisciplinario</em> (Días 15-25), donde equipos mixtos de
+                                        desarrollo, análisis y soporte deben resolver un problema real del cliente, ya
+                                        que esta actividad unifica todas las dimensiones culturales (colaboración,
+                                        experimentación y enfoque al cliente) en un solo ejercicio práctico.
+                                        Para evaluar si la cultura fue comprendida al día 30, establecimos métricas
+                                        como la presentación de una bitácora final con decisiones autónomas y una
+                                        evaluación 360° por parte del mentor, la jefatura y un colega.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Lista de Temas y Doble Botón de Evidencia PDF -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                                <div class="lg:col-span-5 bg-white/90 rounded-3xl p-7 border border-rose-200 shadow-xs">
+                                    <h4 class="text-xs font-black uppercase tracking-widest text-rose-700 mb-4">
+                                        Temas Abordados en la Semana
+                                    </h4>
+                                    <ul class="space-y-3 text-sm font-semibold text-slate-800 leading-relaxed">
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Cómo aprenden los empleados la cultura</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span
+                                                class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs"><i
+                                                    class="fa-solid fa-check"></i></span>
+                                            <span>Comprensión del tema</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Grupo de Dos Botones Interactivos (Visualizar + Descargar PDF) -->
+                                <div
+                                    class="lg:col-span-7 bg-white rounded-3xl p-7 border-2 border-rose-300 shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <span
+                                            class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-rose-700 mb-1">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                            Entregable Académico
+                                        </span>
+                                        <h5 class="text-xl font-black text-slate-900 mb-2">Tarea Cómo aprenden los
+                                            empleados la cultura</h5>
+                                        <p class="text-xs text-slate-500 mb-6">
+                                            Elige <strong>Visualizar Evidencia</strong> para abrir el documento en una
+                                            nueva pestaña del navegador o <strong>Descargar PDF</strong> para guardarlo
+                                            en tu equipo.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                                        <!-- Botón Primario: Visualizar Evidencia -->
+                                        <a href="./assets/docs/cultura-organizacional.pdf" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 active:scale-95 text-white text-sm font-extrabold shadow-md hover:shadow-lg transition-all duration-200">
+                                            <i class="fa-solid fa-eye"></i>
+                                            <span>Visualizar Evidencia</span>
+                                        </a>
+                                        <!-- Botón Secundario Outline: Descargar PDF -->
+                                        <a href="./assets/docs/cultura-organizacional.pdf" download
+                                            class="flex-1 inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-white hover:bg-rose-50 active:scale-95 text-rose-800 border-2 border-rose-600 text-sm font-extrabold transition-all duration-200">
+                                            <i class="fa-solid fa-download"></i>
+                                            <span>Descargar PDF</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECCIÓN 4: REFLEXIÓN HOLÍSTICA
+                 (Layout Asimétrico Alternado con Imágenes y Bloques de Color)
+                 ========================================== -->
+            <section id="reflexion" class="spa-section hidden transition-all duration-300 opacity-0">
+                <!-- Cabecera Editorial -->
+                <div
+                    class="mb-10 bg-gradient-to-r from-[#FEF3C7] via-[#FFE5D4] to-[#EDE9FE] rounded-3xl p-8 border-2 border-white shadow-md">
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 text-slate-900 text-xs font-extrabold uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                        Autoevaluación Visual del Semestre
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
+                        Reflexión Holística
+                    </h2>
+                    <p class="text-slate-700 font-medium leading-relaxed mt-1">
+                        Recorrido visual y crítico sobre los desafíos enfrentados, los logros obtenidos y las lecciones
+                        aprendidas.
+                    </p>
+                </div>
+
+                <!-- Contenedor de Bloques Asimétricos Alternados -->
+                <div class="space-y-10">
+
+                    <!-- BLOQUE 1: DESAFÍOS ENFRENTADOS (Imagen a la Izquierda, Texto a la Derecha - Fondo Melocotón) -->
+                    <article
+                        class="bg-[#FFE5D4] border-2 border-orange-200 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <!-- Columna Izquierda: Imagen Ilustrativa -->
+                            <div
+                                class="lg:col-span-5 h-64 sm:h-80 w-full rounded-2xl overflow-hidden shadow-md relative group">
+                                <!-- Reemplaza el atributo src por tu propia fotografía si lo deseas -->
+                                <img src="./assets/img/reflexion-desafios.jpg"
+                                    alt="Desafíos enfrentados durante el semestre"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-black px-3.5 py-1.5 rounded-full">
+                                    01 · Retos Académicos
+                                </div>
+                            </div>
+
+                            <!-- Columna Derecha: Contenido con Ícono Grande -->
+                            <div class="lg:col-span-7 space-y-4">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-orange-500 text-white flex items-center justify-center text-2xl shadow-md">
+                                    <i class="fa-solid fa-mountain-sun"></i>
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
+                                    Desafíos Enfrentados
+                                </h3>
+                                <p class="text-slate-800 leading-relaxed font-medium text-base">
+                                    Uno de los principales retos durante el desarrollo de la asignatura consistió en
+                                    trasladar la teoría de la administración hacia escenarios reales con
+                                    múltiples variables en conflicto. Analizar casos como el impacto ético y ambiental
+                                    en la industria automotriz (Semana 10) o estructurar una licitación técnica objetiva
+                                    (Semana 11) exigió contrastar rentabilidad, ética corporativa y viabilidad
+                                    operativa.
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3.5 py-1.5 rounded-xl bg-white/80 text-orange-950 text-xs font-extrabold">Análisis
+                                        de Casos Complejos</span>
+                                    <span
+                                        class="px-3.5 py-1.5 rounded-xl bg-white/80 text-orange-950 text-xs font-extrabold">Equilibrio
+                                        Ético-Operativo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- BLOQUE 2: LOGROS OBTENIDOS (Texto a la Izquierda, Imagen a la Derecha - Fondo Azul Cielo Pastel) -->
+                    <article
+                        class="bg-[#E0F2FE] border-2 border-sky-200 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <!-- Columna Izquierda: Contenido con Ícono Grande (Orden 2 en móvil, 1 en escritorio) -->
+                            <div class="lg:col-span-7 space-y-4 order-2 lg:order-1">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-sky-600 text-white flex items-center justify-center text-2xl shadow-md">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
+                                    Logros Obtenidos
+                                </h3>
+                                <p class="text-slate-800 leading-relaxed font-medium text-base">
+                                    Consolidé una metodología analítica para diagnosticar estructuras organizacionales,
+                                    diseñar matrices estratégicas FODA alineadas con planes institucionales (2025-2029)
+                                    y fundamentar procesos de toma de decisiones gerenciales reduciendo la subjetividad.
+                                    Asimismo, integré principios de selección de talento humano aplicables a equipos
+                                    multidisciplinarios de ingeniería y tecnología.
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3.5 py-1.5 rounded-xl bg-white/80 text-sky-950 text-xs font-extrabold">Planeación
+                                        FODA 2025-2029</span>
+                                    <span
+                                        class="px-3.5 py-1.5 rounded-xl bg-white/80 text-sky-950 text-xs font-extrabold">Matrices
+                                        de Decisión</span>
+                                </div>
+                            </div>
+
+                            <!-- Columna Derecha: Imagen Ilustrativa (Orden 1 en móvil, 2 en escritorio) -->
+                            <div
+                                class="lg:col-span-5 h-64 sm:h-80 w-full rounded-2xl overflow-hidden shadow-md relative group order-1 lg:order-2">
+                                <img src="./assets/img/reflexion-logros.jpg" alt="Logros obtenidos en el curso"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-black px-3.5 py-1.5 rounded-full">
+                                    02 · Competencias Alcanzadas
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- BLOQUE 3: LECCIONES APRENDIDAS (Imagen a la Izquierda, Texto a la Derecha - Fondo Lavanda Pastel) -->
+                    <article
+                        class="bg-[#EDE9FE] border-2 border-violet-200 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <!-- Columna Izquierda: Imagen Ilustrativa -->
+                            <div
+                                class="lg:col-span-5 h-64 sm:h-80 w-full rounded-2xl overflow-hidden shadow-md relative group">
+                                <img src="./assets/img/reflexion-lecciones.jpg"
+                                    alt="Lecciones aprendidas y trabajo colaborativo"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-black px-3.5 py-1.5 rounded-full">
+                                    03 · Visión Integral
+                                </div>
+                            </div>
+
+                            <!-- Columna Derecha: Contenido con Ícono Grande -->
+                            <div class="lg:col-span-7 space-y-4">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-violet-600 text-white flex items-center justify-center text-2xl shadow-md">
+                                    <i class="fa-solid fa-compass-drafting"></i>
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
+                                    Lecciones Aprendidas
+                                </h3>
+                                <p class="text-slate-800 leading-relaxed font-medium text-base">
+                                    Comprendí que toda arquitectura tecnológica u organizacional depende directamente de
+                                    las personas que la conforman y de la cultura que comparten. La responsabilidad
+                                    social empresarial, la transparencia en las decisiones y una cadena de mando bien
+                                    equilibrada son pilares indispensables para liderar proyectos sostenibles y de alto
+                                    impacto.
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3.5 py-1.5 rounded-xl bg-white/80 text-violet-950 text-xs font-extrabold">Liderazgo
+                                        Humano</span>
+                                    <span
+                                        class="px-3.5 py-1.5 rounded-xl bg-white/80 text-violet-950 text-xs font-extrabold">Cultura
+                                        y Sostenibilidad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECCIÓN 5: VALORACIÓN DE PARES
+                 (Bloque Hero CTA Dividido: Imagen Colaborativa + Bloque Melocotón/Naranja Vibrante)
+                 ========================================== -->
+            <section id="valoracion" class="spa-section hidden transition-all duration-300 opacity-0">
+                <div class="mb-8">
+                    <span
+                        class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-100 text-orange-900 text-xs font-extrabold uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-users-rays text-orange-600"></i>
+                        Retroalimentación Colaborativa
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
+                        Valoración de Pares
+                    </h2>
+                </div>
+
+                <!-- Hero CTA Dividido en Dos Columnas (Imagen Izquierda + Bloque de Color Vibrante Derecha) -->
+                <div
+                    class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white grid grid-cols-1 lg:grid-cols-12 min-h-[480px]">
+
+                    <!-- Mitad Izquierda: Fotografía de Alta Calidad de Personas Colaborando -->
+                    <div class="lg:col-span-6 relative min-h-[300px] lg:min-h-full overflow-hidden bg-slate-900 group">
+                        <img src="./assets/img/valoracion-pares.jpg"
+                            alt="Compañeros colaborando y evaluando el portafolio"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <span
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold mb-2">
+                                <i class="fa-solid fa-handshake-angle text-orange-300"></i>
+                                Evaluación Abierta entre Compañeros
+                            </span>
+                            <p class="text-sm text-slate-100 font-medium">
+                                La construcción colectiva del conocimiento se fortalece con cada comentario y
+                                sugerencia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mitad Derecha: Bloque de Fondo Color Sólido Vibrante (Melocotón / Naranja Editorial) -->
+                    <div
+                        class="lg:col-span-6 bg-gradient-to-br from-[#FF9F68] via-[#FFB085] to-[#FFD1B3] p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-slate-900 text-orange-300 flex items-center justify-center text-3xl mb-6 shadow-lg">
+                            <i class="fa-regular fa-comments"></i>
+                        </div>
+
+                        <h3 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">
+                            ¡Tu opinión impulsa este portafolio!
+                        </h3>
+
+                        <p class="text-base sm:text-lg text-slate-900 font-semibold leading-relaxed mb-8">
+                            He habilitado un apartado en canva para que compañeros y docentes puedan registrar su
+                            valoración, observaciones y retroalimentación constructiva sobre las evidencias presentadas
+                            en el semestre.
+                        </p>
+
+                        <!-- REEMPLAZA EL ENLACE DE ABAJO POR TU LINK REAL DE GOOGLE DOCS O CANVA -->
+                        <div>
+                            <a href="https://canva.link/3fec99rbtydd1fa" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-slate-950 hover:bg-slate-800 active:scale-95 text-white text-base font-extrabold shadow-xl hover:shadow-2xl transition-all duration-200">
+                                <span>Participar en la Retroalimentación</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-sm text-orange-400"></i>
+                            </a>
+                        </div>
+
+                        <p class="text-xs font-bold text-slate-800/80 mt-5 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>Se abre directamente en Canva en una nueva pestaña.</span>
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ==========================================
+         LÓGICA JAVASCRIPT VANILLA (SPA + CARRUSEL + VISTA DETALLE)
+         ========================================== -->
+    <script>
+        const mainScroll = document.getElementById('main-scroll');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        /* ==========================================
+           1. LÓGICA DEL CARRUSEL HERO (FADE IN / OUT)
+           ========================================== */
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        const heroCarousel = document.getElementById('hero-carousel');
+
+        let slideActual = 0;
+        const totalSlides = slides.length;
+        const intervaloTiempo = 5500; // 5.5 segundos
+        let intervaloCarrusel = null;
+
+        /**
+         * Actualiza visualmente las diapositivas y los puntos indicadores mediante opacidad
+         * @param {number} nuevoIndice
+         */
+        function mostrarSlide(nuevoIndice) {
+            slideActual = (nuevoIndice + totalSlides) % totalSlides;
+
+            slides.forEach((slide, idx) => {
+                if (idx === slideActual) {
+                    slide.classList.remove('opacity-0', 'z-0', 'pointer-events-none');
+                    slide.classList.add('opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'z-0', 'pointer-events-none');
+                }
+            });
+
+            dots.forEach((dot, idx) => {
+                if (idx === slideActual) {
+                    dot.classList.remove('w-2.5', 'bg-white/50', 'hover:bg-white/80');
+                    dot.classList.add('w-8', 'bg-orange-400');
+                } else {
+                    dot.classList.remove('w-8', 'bg-orange-400');
+                    dot.classList.add('w-2.5', 'bg-white/50', 'hover:bg-white/80');
+                }
+            });
+        }
+
+        function siguienteSlide() {
+            mostrarSlide(slideActual + 1);
+        }
+
+        function anteriorSlide() {
+            mostrarSlide(slideActual - 1);
+        }
+
+        function irASlide(indice) {
+            mostrarSlide(indice);
+            reiniciarTemporizadorCarrusel();
+        }
+
+        function iniciarTemporizadorCarrusel() {
+            intervaloCarrusel = setInterval(siguienteSlide, intervaloTiempo);
+        }
+
+        function reiniciarTemporizadorCarrusel() {
+            clearInterval(intervaloCarrusel);
+            iniciarTemporizadorCarrusel();
+        }
+
+        // Eventos para las flechas del carrusel
+        prevBtn.addEventListener('click', () => {
+            anteriorSlide();
+            reiniciarTemporizadorCarrusel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            siguienteSlide();
+            reiniciarTemporizadorCarrusel();
+        });
+
+        // Pausar auto-avance al posar el cursor sobre el carrusel y reanudar al salir
+        heroCarousel.addEventListener('mouseenter', () => clearInterval(intervaloCarrusel));
+        heroCarousel.addEventListener('mouseleave', iniciarTemporizadorCarrusel);
+
+        // Iniciar carrusel automáticamente al cargar
+        iniciarTemporizadorCarrusel();
+
+        /* ==========================================
+           2. NAVEGACIÓN ENTRE SECCIONES DE LA SPA
+           ========================================== */
+        function cambiarSeccion(seccionId) {
+            const secciones = document.querySelectorAll('.spa-section');
+            const botonesNav = document.querySelectorAll('.nav-item');
+
+            botonesNav.forEach(btn => {
+                if (btn.getAttribute('data-section') === seccionId) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            secciones.forEach(sec => {
+                if (sec.id === seccionId) {
+                    sec.classList.remove('hidden');
+                    requestAnimationFrame(() => {
+                        sec.classList.remove('opacity-0');
+                        sec.classList.add('opacity-100');
+                    });
+                } else {
+                    sec.classList.remove('opacity-100');
+                    sec.classList.add('opacity-0');
+                    sec.classList.add('hidden');
+                }
+            });
+
+            if (seccionId === 'evidencias') {
+                volverAGridEvidencias(false);
+            }
+
+            mainScroll.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (window.innerWidth < 1024) {
+                cerrarMenuMovil();
+            }
+        }
+
+        /* ==========================================
+           3. INTERCAMBIO ENTRE VISTA GRID Y DETALLE
+           ========================================== */
+        function mostrarDetalleSemana(semanaId) {
+            const vistaGrid = document.getElementById('vista-grid-evidencias');
+            const vistaDetalle = document.getElementById('vista-detalle-evidencias');
+            const articulosDetalle = document.querySelectorAll('.detalle-semana');
+
+            vistaGrid.classList.remove('opacity-100');
+            vistaGrid.classList.add('opacity-0');
+
+            setTimeout(() => {
+                vistaGrid.classList.add('hidden');
+
+                articulosDetalle.forEach(articulo => {
+                    if (articulo.id === 'detalle-' + semanaId) {
+                        articulo.classList.remove('hidden');
+                    } else {
+                        articulo.classList.add('hidden');
+                    }
+                });
+
+                vistaDetalle.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    vistaDetalle.classList.remove('opacity-0');
+                    vistaDetalle.classList.add('opacity-100');
+                });
+
+                mainScroll.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 150);
+        }
+
+        function volverAGridEvidencias(hacerScroll = true) {
+            const vistaGrid = document.getElementById('vista-grid-evidencias');
+            const vistaDetalle = document.getElementById('vista-detalle-evidencias');
+
+            vistaDetalle.classList.remove('opacity-100');
+            vistaDetalle.classList.add('opacity-0');
+
+            setTimeout(() => {
+                vistaDetalle.classList.add('hidden');
+                vistaGrid.classList.remove('hidden');
+
+                requestAnimationFrame(() => {
+                    vistaGrid.classList.remove('opacity-0');
+                    vistaGrid.classList.add('opacity-100');
+                });
+
+                if (hacerScroll) {
+                    mainScroll.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }, 150);
+        }
+
+        /* ==========================================
+           4. MENÚ LATERAL EN DISPOSITIVOS MÓVILES
+           ========================================== */
+        function abrirMenuMovil() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarOverlay.classList.remove('hidden');
+            mobileMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+        }
+
+        function cerrarMenuMovil() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+            mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+        }
+
+        mobileMenuBtn.addEventListener('click', () => {
+            if (sidebar.classList.contains('-translate-x-full')) {
+                abrirMenuMovil();
+            } else {
+                cerrarMenuMovil();
+            }
+        });
+
+        sidebarOverlay.addEventListener('click', cerrarMenuMovil);
+    </script>
+</body>
+
+</html>
